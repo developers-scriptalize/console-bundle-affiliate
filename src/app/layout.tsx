@@ -29,17 +29,7 @@ export default function RootLayout({
         inter.variable,
       )}
     >
-      <head>
-        <link
-          rel="preconnect"
-          href="https://cdn.fontshare.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700&display=swap"
-        />
-      </head>
+      <head></head>
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
   )

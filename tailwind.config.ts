@@ -1,5 +1,4 @@
 import { type Config } from 'tailwindcss'
-import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
@@ -30,10 +29,6 @@ export default {
         '4xl': '2rem',
         '5xl': '3rem',
         '6xl': '5rem',
-      },
-      fontFamily: {
-        sans: 'var(--font-inter)',
-        display: ['Cabinet Grotesk', ...defaultTheme.fontFamily.sans],
       },
     },
   },
