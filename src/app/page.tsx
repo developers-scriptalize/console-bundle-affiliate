@@ -8,15 +8,31 @@ export default function Home() {
   return (
     <>
       <Container size="lg" className="w-full space-y-12 py-6 lg:py-12">
-        <div className="grid grid-cols-3 gap-6 lg:gap-12">
-          <div className="h-44 bg-green-500" />
-          <div className="bg-blue-500" />
-          <div className="bg-red-500" />
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-12">
+          <div className="bg-xbox flex h-44 items-center justify-center rounded-lg">
+            <Image src="/logos/xbox.svg" width={75} height={33} alt="Xbox" />
+          </div>
+          <div className="bg-playstation flex h-44 items-center justify-center rounded-lg">
+            <Image
+              src="/logos/playstation.svg"
+              width={75}
+              height={33}
+              alt="Ps"
+            />
+          </div>
+          <div className="bg-nintendo flex h-44 items-center justify-center rounded-lg">
+            <Image
+              src="/logos/nintendo.svg"
+              width={150}
+              height={33}
+              alt="Nintendo"
+            />
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6 lg:gap-12">
-          <div className="h-56 bg-slate-600" />
-          <div className="bg-slate-600" />
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-12">
+          <div className="h-80 rounded-lg bg-slate-600" />
+          <div className="h-80 rounded-lg bg-slate-600" />
         </div>
       </Container>
 
@@ -41,20 +57,26 @@ export default function Home() {
                 Quisquam, dolorem blanditiis.
               </p>
             </div>
-            <Image src={authorImage} width={250} height={250} alt="mokkel" />
+            <Image
+              src={authorImage}
+              width={250}
+              height={250}
+              alt="mokkel"
+              className="hidden lg:block"
+            />
           </article>
         </Container>
       </div>
-      <Container size="lg" className="my-6 space-y-6 lg:my-12 lg:space-y-12">
+      <Container size="lg" className="my-6 space-y-12 lg:my-12">
         <article className="grid grid-cols-12 items-center gap-6 lg:gap-12">
           <Image
             src="/logos/amazon.png"
             width={100}
             height={10}
             alt="bol"
-            className="col-span-2"
+            className="col-span-12 mx-auto lg:col-span-2"
           />
-          <p className="col-span-10">
+          <p className="col-span-12 lg:col-span-10">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
             nostrum velit maxime hic alias labore fugit animi ipsa, enim autem
             aliquam debitis porro molestiae aliquid adipisci quia qui magnam
@@ -75,9 +97,9 @@ export default function Home() {
             width={100}
             height={10}
             alt="bol"
-            className="col-span-2"
+            className="col-span-12 mx-auto lg:col-span-2"
           />
-          <p className="col-span-10">
+          <p className="col-span-12 lg:col-span-10">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
             nostrum velit maxime hic alias labore fugit animi ipsa, enim autem
             aliquam debitis porro molestiae aliquid adipisci quia qui magnam
@@ -98,9 +120,9 @@ export default function Home() {
             width={100}
             height={10}
             alt="bol"
-            className="col-span-2"
+            className="col-span-12 mx-auto lg:col-span-2"
           />
-          <p className="col-span-10">
+          <p className="col-span-12 lg:col-span-10">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
             nostrum velit maxime hic alias labore fugit animi ipsa, enim autem
             aliquam debitis porro molestiae aliquid adipisci quia qui magnam
@@ -123,14 +145,14 @@ export default function Home() {
               Laatste console nieuws
             </h2>
             <Link href="/blogs" className="underline">
-              Blogs
+              Zie alle blogs
             </Link>
           </div>
 
-          <div className="grid grid-cols-3 gap-6 py-6 lg:gap-12 lg:py-12">
-            <div className="aspect-square bg-gray-200" />
-            <div className="aspect-square bg-gray-200" />
-            <div className="aspect-square bg-gray-200" />
+          <div className="grid grid-cols-1 gap-6 py-6 lg:grid-cols-3 lg:gap-12 lg:py-12">
+            <div className="aspect-square rounded-lg bg-gray-200" />
+            <div className="aspect-square rounded-lg bg-gray-200" />
+            <div className="aspect-square rounded-lg bg-gray-200" />
           </div>
         </Container>
       </div>

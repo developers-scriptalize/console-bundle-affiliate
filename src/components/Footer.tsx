@@ -8,11 +8,11 @@ export function Footer() {
           </label>
           <div className="mt-2">
             <input
-              className="rounded-l-md p-2 py-1 outline outline-gray-200"
+              className="h-11 rounded-l-md p-2 py-1 outline outline-gray-200"
               type="email"
             />
             <button
-              className="rounded-r-md bg-green-300 p-2 py-1 text-white outline outline-green-300"
+              className="h-11 rounded-r-md bg-green-500 p-2 py-1 text-white outline outline-green-500"
               type="submit"
             >
               Verzenden
