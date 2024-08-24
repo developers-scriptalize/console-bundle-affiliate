@@ -95,34 +95,37 @@ export default async function postPage({
             {data.title}
           </h2>
           <p className="pb-3 lg:pb-6">{`${data.author.name} - ${data.publishedAt}`}</p>
-          <Image
-            src={data.mainImage.asset.url}
-            alt={data.title}
-            width={600}
-            height={1}
-            className="mb-6 w-full lg:mb-12"
-          />
+          {data.mainImage && (
+            <Image
+              src={data.mainImage.asset.url}
+              alt={data.title}
+              width={600}
+              height={1}
+              className="mb-6 w-full lg:mb-12"
+            />
+          )}
           <p>
-            {data.bodyRaw.map((block: any) => (
-              <>
-                {block._type === 'image' && (
-                  <Image
-                    src={urlFor(block.asset._ref).url()}
-                    width={100}
-                    height={100}
-                    alt="ok"
-                    className="mb-3 lg:mb-6"
-                  />
-                )}
-                {block._type === 'block' &&
-                  block.children.map((child: any) => (
-                    <>
-                      <span key={child._key}>{child.text}</span>
-                      <br />
-                    </>
-                  ))}
-              </>
-            ))}
+            {data.bodyRaw &&
+              data.bodyRaw.map((block: any) => (
+                <>
+                  {block._type === 'image' && (
+                    <Image
+                      src={urlFor(block.asset._ref).url()}
+                      width={100}
+                      height={100}
+                      alt="ok"
+                      className="mb-3 lg:mb-6"
+                    />
+                  )}
+                  {block._type === 'block' &&
+                    block.children.map((child: any) => (
+                      <>
+                        <span key={child._key}>{child.text}</span>
+                        <br />
+                      </>
+                    ))}
+                </>
+              ))}
           </p>
         </article>
       </Container>
