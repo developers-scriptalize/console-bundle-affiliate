@@ -25,6 +25,15 @@ export default {
       '9xl': ['8rem', { lineHeight: '1' }],
     },
     extend: {
+      animation: {
+        shinelong: 'shine 0.8s',
+      },
+      keyframes: {
+        shine: {
+          '0%': { left: '10%' },
+          '100%': { left: '120%' },
+        },
+      },
       colors: {
         nintendo: {
           DEFAULT: '#E60013',

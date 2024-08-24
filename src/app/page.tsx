@@ -3,36 +3,82 @@ import { Footer } from '@/components/Footer'
 import Image from 'next/image'
 import authorImage from '@/images/avatars/author.png'
 import Link from 'next/link'
+import { Gloss } from '@/components/Gloss'
+import { gqlFetch } from '@/sanity/lib/fetch'
 
-export default function Home() {
+const GET_POST = `
+  query {
+    allPost (sort: {publishedAt: DESC}, limit: 3) {
+      title
+      slug {
+        current
+      }
+      mainImage {
+        asset {
+          url
+        }
+      }
+      author {
+        name
+      }
+      publishedAt
+      _createdAt
+    }
+  }
+`
+
+async function getData() {
+  const { data } = await gqlFetch({
+    query: GET_POST,
+  })
+
+  return data
+}
+
+export default async function Home() {
+  const data: any = await getData()
+  const newestPost = data.data.allPost
+  console.log(newestPost)
   return (
     <>
       <Container size="lg" className="w-full space-y-12 py-6 lg:py-12">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-12">
-          <div className="bg-xbox flex h-44 items-center justify-center rounded-lg">
+          <Link
+            href="/xbox"
+            className="group relative flex h-44 items-center justify-center overflow-hidden rounded-lg bg-xbox"
+          >
             <Image src="/logos/xbox.svg" width={75} height={33} alt="Xbox" />
-          </div>
-          <div className="bg-playstation flex h-44 items-center justify-center rounded-lg">
+            <Gloss />
+          </Link>
+          <Link
+            href="/playstation"
+            className="group relative flex h-44 items-center justify-center rounded-lg bg-playstation"
+          >
             <Image
               src="/logos/playstation.svg"
               width={75}
               height={33}
               alt="Ps"
             />
-          </div>
-          <div className="bg-nintendo flex h-44 items-center justify-center rounded-lg">
+            <Gloss />
+          </Link>
+          <Link
+            href="/nintendo"
+            className="group relative flex h-44 items-center justify-center rounded-lg bg-nintendo"
+          >
             <Image
               src="/logos/nintendo.svg"
               width={150}
               height={33}
               alt="Nintendo"
             />
-          </div>
+            <Gloss />
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-12">
-          <div className="h-80 rounded-lg bg-slate-600" />
-          <div className="h-80 rounded-lg bg-slate-600" />
+          <div className="h-80 rounded-lg bg-[url('/images/abstract-background.png')] bg-cover bg-top" />
+          <div className="h-80 rounded-lg bg-[url('/images/abstract-background.png')] bg-cover bg-bottom" />
         </div>
       </Container>
 
@@ -144,20 +190,37 @@ export default function Home() {
             <h2 className="text-3xl font-semibold tracking-wide">
               Laatste console nieuws
             </h2>
-            <Link href="/blogs" className="underline">
+            <Link href="/blog" className="underline">
               Zie alle blogs
             </Link>
           </div>
 
           <div className="grid grid-cols-1 gap-6 py-6 lg:grid-cols-3 lg:gap-12 lg:py-12">
-            <div className="aspect-square rounded-lg bg-gray-200" />
-            <div className="aspect-square rounded-lg bg-gray-200" />
-            <div className="aspect-square rounded-lg bg-gray-200" />
+            {newestPost.map((post: any) => (
+              <Link
+                key={post._createdAt}
+                href={'/blog/' + post.slug.current}
+                className="group aspect-square rounded-lg bg-gray-200 p-3 group-hover:cursor-pointer"
+              >
+                <h3 className="text-lg font-semibold">{post.title}</h3>
+                <p className="text-sm font-light">{`${post.author.name} - ${post.publishedAt}`}</p>
+                {post.mainImage && (
+                  <Image
+                    src={post.mainImage.asset.url}
+                    alt={post.title}
+                    width={1000}
+                    height={1000}
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                    }}
+                  />
+                )}
+              </Link>
+            ))}
           </div>
         </Container>
       </div>
-
-      <Footer />
     </>
   )
 }
