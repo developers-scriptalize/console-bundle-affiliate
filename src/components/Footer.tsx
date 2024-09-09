@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="pb-12">
+    <footer className="bg-slate-900 pb-12 text-white">
       <form className="mx-auto w-max py-6 lg:py-12">
         <fieldset>
           <label className="text-lg tracking-wide">

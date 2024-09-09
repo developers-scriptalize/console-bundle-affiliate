@@ -7,6 +7,7 @@ import { Footer } from '@/components/Footer'
 import Link from 'next/link'
 import { Expandable, ExpandableButton } from '@/components/Expandable'
 import { Menu } from '@/components/Menu'
+import Image from 'next/image'
 
 const quicksand = Quicksand({
   subsets: ['latin'],
@@ -34,13 +35,17 @@ export default function RootLayout({
     >
       <head></head>
       <body className="flex min-h-full flex-col">
-        <header className="sticky z-10 flex w-full items-center justify-center py-4">
+        <header className="sticky z-10 flex w-full items-center justify-center bg-slate-900 py-4">
           <Menu />
-          <Link href="/">
-            <h1 className="text-xl font-semibold uppercase leading-10 tracking-widest lg:text-4xl">
-              <span className="text-xbox">c</span>
-              <span className="text-playstation">o</span>
-              <span className="text-nintendo">n</span>solebundels.nl
+          <Link href="/" className="flex space-x-3">
+            <Image
+              src="/logos/logo_bg_theme.png"
+              height={40}
+              width={40}
+              alt="Consolebundels.nl"
+            />
+            <h1 className="text-xl font-semibold uppercase leading-10 tracking-widest text-white lg:text-4xl">
+              consolebundels.nl
             </h1>
           </Link>
         </header>
