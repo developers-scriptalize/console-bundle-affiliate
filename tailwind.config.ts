@@ -27,11 +27,17 @@ export default {
     extend: {
       animation: {
         shinelong: 'shine 0.8s',
+        slide: 'slide 0.3s',
       },
+
       keyframes: {
         shine: {
           '0%': { left: '10%' },
           '100%': { left: '120%' },
+        },
+        slide: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
         },
       },
       colors: {

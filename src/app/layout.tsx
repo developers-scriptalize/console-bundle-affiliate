@@ -5,6 +5,8 @@ import clsx from 'clsx'
 import '@/styles/tailwind.css'
 import { Footer } from '@/components/Footer'
 import Link from 'next/link'
+import { Expandable, ExpandableButton } from '@/components/Expandable'
+import { Menu } from '@/components/Menu'
 
 const quicksand = Quicksand({
   subsets: ['latin'],
@@ -32,23 +34,8 @@ export default function RootLayout({
     >
       <head></head>
       <body className="flex min-h-full flex-col">
-        <header className="sticky flex w-full items-center justify-center py-4">
-          <button className="absolute left-0 top-0 p-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-10"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 9h16.5m-16.5 6.75h16.5"
-              />
-            </svg>
-          </button>
+        <header className="sticky z-10 flex w-full items-center justify-center py-4">
+          <Menu />
           <Link href="/">
             <h1 className="text-xl font-semibold uppercase leading-10 tracking-widest lg:text-4xl">
               <span className="text-xbox">c</span>
