@@ -37,14 +37,15 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col">
         <header className="sticky z-10 flex w-full items-center justify-center bg-slate-900 py-4">
           <Menu />
-          <Link href="/" className="flex space-x-3">
+          <Link href="/" className="flex items-center space-x-3">
             <Image
               src="/logos/logo_bg_theme.png"
               height={40}
               width={40}
+              className="h-6 w-6 lg:h-10 lg:w-10"
               alt="Consolebundels.nl"
             />
-            <h1 className="text-xl font-semibold uppercase leading-10 tracking-widest text-white lg:text-4xl">
+            <h1 className="text-lg font-semibold uppercase leading-8 tracking-widest text-white lg:text-4xl lg:leading-10">
               consolebundels.nl
             </h1>
           </Link>

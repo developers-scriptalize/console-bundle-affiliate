@@ -39,7 +39,7 @@ export function Menu() {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          strokeWidth={1.5}
+          strokeWidth={1}
           stroke="white"
           className="size-8"
         >
@@ -63,7 +63,7 @@ export function Menu() {
             viewBox="0 0 24 24"
             strokeWidth={1}
             stroke="currentColor"
-            className="size-8"
+            className="size-6 lg:size-8"
           >
             <path
               strokeLinecap="round"
@@ -73,7 +73,7 @@ export function Menu() {
           </svg>
         </button>
 
-        <ul className="text-lg font-semibold">
+        <ul className="font-semibold lg:text-lg">
           <MenuItem label="Home" path="/" />
           <MenuItem label="Xbox" path="/xbox" />
           <MenuItem label="Playstation" path="/playstation" />
