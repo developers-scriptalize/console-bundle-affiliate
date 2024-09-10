@@ -38,7 +38,7 @@ async function getData() {
 export default async function Home() {
   const data: any = await getData()
   const newestPost = data.data.allPost
-  console.log(newestPost)
+
   return (
     <>
       <Container size="lg" className="w-full space-y-12 py-6 lg:py-12">
@@ -212,27 +212,60 @@ export default async function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 py-6 lg:grid-cols-3 lg:gap-12 lg:py-12">
+          <div className="grid grid-cols-1 gap-6 py-6 lg:grid-cols-3">
             {newestPost.map((post: any) => (
               <Link
-                key={post._createdAt}
+                key={post.title}
+                className="group mt-6 flex max-h-[450px] flex-col overflow-hidden rounded-lg bg-white shadow-md"
                 href={'/blog/' + post.slug.current}
-                className="group aspect-square rounded-lg bg-gray-200 p-3 group-hover:cursor-pointer"
               >
-                <h3 className="text-lg font-semibold">{post.title}</h3>
-                <p className="text-sm font-light">{`${post.author.name} - ${post.publishedAt}`}</p>
                 {post.mainImage && (
                   <Image
                     src={post.mainImage.asset.url}
                     alt={post.title}
-                    width={1000}
-                    height={1000}
-                    style={{
-                      width: '100%',
-                      height: 'auto',
-                    }}
+                    width={450}
+                    height={450}
                   />
                 )}
+                <div className="p-3">
+                  <h3 className="text-2xl font-semibold">{post.title}</h3>
+                  <div className="flex items-center space-x-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="size-4 stroke-gray-500"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+                      />
+                    </svg>
+                    <p className="text-gray-500">{`${post.author.name}  |  ${post.publishedAt}`}</p>
+                  </div>
+                </div>
+                <div className="flex grow items-end justify-end">
+                  <div className="flex items-center space-x-1 p-3">
+                    <span>Bekijk</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="size-4 opacity-0 transition-all duration-500 group-hover:opacity-100"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                      />
+                    </svg>
+                  </div>
+                </div>
               </Link>
             ))}
           </div>

@@ -52,27 +52,24 @@ export default async function blogPage() {
   const data: any = await getData()
 
   return (
-    <div className={`bg-${[data.slug]} min-h-96`}>
+    <div className={`bg-${[data.slug]} min-h-96 bg-gray-100`}>
       <Container size="lg">
-        <h2 className="mt-3 text-4xl capitalize tracking-wider lg:mt-6">
-          Blog
-        </h2>
         <section className="my-12">
           {data.data.allPost.map((post: any) => (
             <Link
               key={post.title}
-              className="group mt-6 flex max-h-[450px] flex-col shadow-md first:mt-0 sm:flex-row"
+              className="group mt-6 flex max-h-[450px] flex-col overflow-hidden rounded-lg bg-white shadow-md first:mt-0 sm:flex-row"
               href={'/blog/' + post.slug.current}
             >
               {post.mainImage && (
                 <Image
                   src={post.mainImage.asset.url}
                   alt={post.title}
-                  width={450}
+                  width={350}
                   height={450}
                 />
               )}
-              <div className="p-3 md:p-6">
+              <div className="p-3">
                 <h3 className="text-2xl font-semibold">{post.title}</h3>
                 <div className="flex items-center space-x-1">
                   <svg

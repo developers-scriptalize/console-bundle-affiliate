@@ -22,13 +22,14 @@ export function BreadCrumbs() {
         </Link>
         {crumbs.map((path: string, index: number) => (
           <Link key={path} href={`/${crumbs.slice(0, index + 1).join('/')}`}>
+            <span className="mx-2 lg:mx-3">/</span>
             <span
               className={clsx(
                 'capitalize',
                 index !== crumbs.length - 1 ? 'font-light' : 'font-semibold',
               )}
             >
-              {' / ' + path.replaceAll('-', ' ')}
+              {path.replaceAll('-', ' ')}
             </span>
           </Link>
         ))}
