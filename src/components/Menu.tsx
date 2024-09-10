@@ -73,7 +73,7 @@ export function Menu() {
           </svg>
         </button>
 
-        <ul className="font-semibold lg:text-lg">
+        <ul className="cursor-pointer font-semibold lg:text-lg">
           <MenuItem label="Home" path="/" />
           <MenuItem label="Xbox" path="/xbox" />
           <MenuItem label="Playstation" path="/playstation" />

@@ -1,4 +1,5 @@
 'use client'
+import clsx from 'clsx'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useMemo } from 'react'
@@ -12,13 +13,25 @@ export function BreadCrumbs() {
 
   if (pathname !== '/')
     return (
-      <div className="mx-auto w-full px-4 py-3 sm:px-6 md:max-w-4xl md:px-4 lg:max-w-7xl lg:px-8 lg:py-6">
-        <Link href="/">Home</Link>
+      <nav
+        aria-label="Breadcrumb"
+        className="w-full bg-slate-800 px-4 py-3 text-sm text-white sm:px-6 md:px-4 lg:px-5 lg:py-3"
+      >
+        <Link className="font-light" href="/">
+          Home
+        </Link>
         {crumbs.map((path: string, index: number) => (
-          <Link href={`/${crumbs.slice(0, index + 1).join('/')}`}>
-            <span className="capitalize">{' / ' + path}</span>
+          <Link key={path} href={`/${crumbs.slice(0, index + 1).join('/')}`}>
+            <span
+              className={clsx(
+                'capitalize',
+                index !== crumbs.length - 1 ? 'font-light' : 'font-semibold',
+              )}
+            >
+              {' / ' + path.replaceAll('-', ' ')}
+            </span>
           </Link>
         ))}
-      </div>
+      </nav>
     )
 }
