@@ -188,10 +188,27 @@ export default async function Home() {
         <Container size="lg" className="py-12">
           <div className="flex w-full items-center justify-between">
             <h2 className="text-3xl font-semibold tracking-wide">
-              Laatste console nieuws
+              Laatste nieuws
             </h2>
-            <Link href="/blog" className="underline">
-              Zie alle blogs
+            <Link
+              href="/blog"
+              className="group inline-flex items-center space-x-1"
+            >
+              <span className="group-hover:font-semibold">Bekijken</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-4 group-hover:stroke-2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                />
+              </svg>
             </Link>
           </div>
 

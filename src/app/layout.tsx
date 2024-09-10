@@ -5,9 +5,9 @@ import clsx from 'clsx'
 import '@/styles/tailwind.css'
 import { Footer } from '@/components/Footer'
 import Link from 'next/link'
-import { Expandable, ExpandableButton } from '@/components/Expandable'
 import { Menu } from '@/components/Menu'
 import Image from 'next/image'
+import { BreadCrumbs } from '@/components/BreadCrumbs'
 
 const quicksand = Quicksand({
   subsets: ['latin'],
@@ -50,6 +50,7 @@ export default function RootLayout({
             </h1>
           </Link>
         </header>
+        <BreadCrumbs />
         {children}
         <Footer />
       </body>

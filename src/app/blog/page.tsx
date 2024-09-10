@@ -54,12 +54,14 @@ export default async function blogPage() {
   return (
     <div className={`bg-${[data.slug]} min-h-96`}>
       <Container size="lg">
-        <h2 className="mt-12 text-4xl capitalize tracking-wider">Blog</h2>
+        <h2 className="mt-3 text-4xl capitalize tracking-wider lg:mt-6">
+          Blog
+        </h2>
         <section className="my-12">
           {data.data.allPost.map((post: any) => (
             <Link
               key={post.title}
-              className="group mt-6 flex max-h-[450px] space-x-6 shadow-md first:mt-0"
+              className="group mt-6 flex max-h-[450px] flex-col shadow-md first:mt-0 sm:flex-row"
               href={'/blog/' + post.slug.current}
             >
               {post.mainImage && (
@@ -70,7 +72,7 @@ export default async function blogPage() {
                   height={450}
                 />
               )}
-              <div>
+              <div className="p-3 md:p-6">
                 <h3 className="text-2xl font-semibold">{post.title}</h3>
                 <div className="flex items-center space-x-1">
                   <svg
@@ -91,9 +93,23 @@ export default async function blogPage() {
                 </div>
               </div>
               <div className="flex grow items-end justify-end">
-                <p className="p-6 text-lg opacity-0 transition-all duration-500 group-hover:underline group-hover:opacity-100">
-                  Bekijk
-                </p>
+                <div className="flex items-center space-x-1 p-3">
+                  <span>Bekijk</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="size-4 opacity-0 transition-all duration-500 group-hover:opacity-100"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                    />
+                  </svg>
+                </div>
               </div>
             </Link>
           ))}
