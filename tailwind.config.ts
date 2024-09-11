@@ -2,6 +2,14 @@ import { type Config } from 'tailwindcss'
 
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  safelist: [
+    'from-xbox',
+    'from-playstation',
+    'from-nintendo',
+    'to-xbox-light',
+    'to-playstation-light',
+    'to-nintendo-light',
+  ],
   theme: {
     boxShadow: {
       sm: '0 2px 6px rgb(15 23 42 / 0.08)',
@@ -38,12 +46,15 @@ export default {
       colors: {
         nintendo: {
           DEFAULT: '#E60013',
+          light: '#FF707C',
         },
         playstation: {
           DEFAULT: '#013791',
+          light: '#488BFE',
         },
         xbox: {
           DEFAULT: '#0E7C10',
+          light: '#90D67E',
         },
       },
       borderRadius: {

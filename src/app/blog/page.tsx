@@ -65,7 +65,7 @@ export default async function blogPage() {
                 <Image
                   src={post.mainImage.asset.url}
                   alt={post.title}
-                  width={350}
+                  width={450}
                   height={450}
                 />
               )}
