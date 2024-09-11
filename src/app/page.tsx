@@ -45,14 +45,14 @@ export default async function Home() {
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-12">
           <Link
             href="/xbox"
-            className="group relative flex h-44 items-center justify-center overflow-hidden rounded-lg bg-xbox"
+            className="to-xbox-light group relative flex h-44 items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-xbox"
           >
             <Image src="/logos/xbox.svg" width={75} height={33} alt="Xbox" />
             <Gloss />
           </Link>
           <Link
             href="/playstation"
-            className="group relative flex h-44 items-center justify-center rounded-lg bg-playstation"
+            className="to-playstation-light group relative flex h-44 items-center justify-center rounded-lg bg-gradient-to-br from-playstation"
           >
             <Image
               src="/logos/playstation.svg"
@@ -64,7 +64,7 @@ export default async function Home() {
           </Link>
           <Link
             href="/nintendo"
-            className="group relative flex h-44 items-center justify-center rounded-lg bg-nintendo"
+            className="to-nintendo-light group relative flex h-44 items-center justify-center rounded-lg bg-gradient-to-br from-nintendo"
           >
             <Image
               src="/logos/nintendo.svg"

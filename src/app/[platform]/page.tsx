@@ -1,4 +1,5 @@
 import { Container } from '@/components/Container'
+import { Tabs } from '@/components/Tabs'
 import { gqlFetch } from '@/sanity/lib/fetch'
 import clsx from 'clsx'
 import type { Metadata } from 'next'
@@ -79,34 +80,37 @@ export default async function platformPage({
       className={`min-h-96 bg-gradient-to-br from-${params.platform} to-${params.platform}-light`}
     >
       <Container size="lg">
-        <h2 className="py-12 text-4xl capitalize tracking-wider text-white">
+        <h2 className="py-6 text-4xl capitalize tracking-wider text-white lg:py-12">
           {params.platform} deals
         </h2>
         <p className="tracking-wide text-white">
           {data.description} Lorem ipsum dolor sit amet consectetur adipisicing
           elit. Excepturi ut quam natus facere, doloremque dolorum accusamus
           beatae asperiores animi voluptates nobis iusto quod non aliquam
-          doloribus ipsa quidem distinctio fugit in deserunt. Praesentium error
-          hic, quidem ratione, magnam libero expedita suscipit dolor, totam
-          necessitatibus doloribus adipisci reiciendis culpa odio perferendis.
+          doloribus ipsa quidem distinctio fugit in deserunt.
         </p>
 
-        <section className="my-6 flex flex-col items-end space-y-6 lg:my-12">
-          <div className="w-1/4">
-            <label htmlFor="location" className="w-max leading-6 text-white">
-              Sorteren
-            </label>
-            <select
-              id="location"
-              name="location"
-              defaultValue="Canada"
-              className="mt-3 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            >
-              <option>Nieuwste</option>
-              <option>Goedkoopste</option>
-              <option>Beste gewaardeerd</option>
-            </select>
+        <section className="my-6 space-y-6 lg:my-12">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+            <Tabs />
+
+            <fieldset>
+              <label htmlFor="location" className="leading-6 text-white">
+                Sorteren
+              </label>
+              <select
+                id="sort"
+                name="sort"
+                defaultValue="Prijs"
+                className="mt-3 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6 md:w-auto"
+              >
+                <option>Nieuwste</option>
+                <option>Prijs</option>
+                <option>Beste gewaardeerd</option>
+              </select>
+            </fieldset>
           </div>
+
           <div className="h-44 w-full rounded-lg bg-white shadow-md"></div>
           <div className="h-44 w-full rounded-lg bg-white shadow-md"></div>
           <div className="h-44 w-full rounded-lg bg-white shadow-md"></div>
