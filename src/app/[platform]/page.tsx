@@ -3,6 +3,7 @@ import { Tabs } from '@/components/Tabs'
 import { gqlFetch } from '@/sanity/lib/fetch'
 import clsx from 'clsx'
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 
 export async function generateMetadata({
   params,
@@ -92,7 +93,9 @@ export default async function platformPage({
 
         <section className="my-6 space-y-6 lg:my-12">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-            <Tabs />
+            <Suspense fallback="Loading..">
+              <Tabs />
+            </Suspense>
 
             <fieldset>
               <label htmlFor="location" className="leading-6 text-white">
